@@ -44,7 +44,7 @@ public class AuteurPanel extends JPanel implements ActionListener, MouseListener
     AuteurTableModel model;
     JTable tab;
 
-    Auteur update;
+    Personne update;
 
     public AuteurPanel(JFrame mafenetre) {
         super();
@@ -84,16 +84,28 @@ public class AuteurPanel extends JPanel implements ActionListener, MouseListener
         JLabel type = new JLabel("Type :");
         c.gridx = 0;
         c.gridy = 2;
-        c.insets = new Insets(10,100, 10,0);
+        c.insets = new Insets(10, 100, 10, 0);
         me.add(type, c);
-        radioAuteur = new JRadioButton("Auteur");
+        JPanel radio = new JPanel();
+        GridBagConstraints radGBC = new GridBagConstraints();
+        radio.setLayout(new GridBagLayout());
+        radGBC.gridx = 0;
+        radGBC.gridy = 0;
+        radioAuteur=new JRadioButton("Auteur ");
+        radio.add(radioAuteur,radGBC);
+        radGBC.gridx = 1;
+        radioReal= new JRadioButton("Realisateur");
+        radio.add(radioReal,radGBC);
+        ButtonGroup btnGroup = new ButtonGroup();
+        btnGroup.add(radioAuteur);
+        btnGroup.add(radioReal);
+
         c.gridx = 1;
-        c.insets = new Insets(10,10,10,10);
-        me.add(radioAuteur,c);
-        radioReal = new JRadioButton("Realisateur");
-        c.gridx = 2;
-        c.insets = new Insets(10,10,10,10);
-        me.add(radioReal,c);
+        c.gridy = 2;
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.anchor = GridBagConstraints.WEST;
+        c.insets = new Insets(10, 0, 10, 0);
+        me.add(radio,c);
 
 
 
@@ -208,7 +220,7 @@ public class AuteurPanel extends JPanel implements ActionListener, MouseListener
     public void mouseClicked(MouseEvent e) {
         if (e.getClickCount() == 2) { // to detect doble click events
             JTable target = (JTable) e.getSource();
-            update = (Auteur) Main.autReals.get(target.getSelectedRow());
+            update = (Personne) Main.autReals.get(target.getSelectedRow());
             nomT.setText(update.getNom());
             prenomT.setText(update.getPrenom());
         }
