@@ -1,25 +1,27 @@
 package models;
 
+import classes.Client;
+import classes.Livre;
+import classes.Video;
+import main.Main;
+import vues.LivrePanel;
+
 import javax.swing.table.AbstractTableModel;
 
-import classes.Client;
-import classes.Personne;
-import main.Main;
-
-public class ClientTableModel extends AbstractTableModel {
-
-    private String[] header = {"Nom", "Prénom", "Mail", "Sélection"};
+public class VideoTableModel extends AbstractTableModel {
+    private String[] header = {"Référence", "Désignation", "Prix", "Durée","Sélection"};
     private Object[][] data;
 
-    public ClientTableModel() {
-        data = new Object[Main.clients.size()][];
+    public VideoTableModel() {
+        data = new Object[Main.videos.size()][];
         int i = 0;
-        for (Client c : Main.clients) {
-            data[i] = new Object[4];
-            data[i][0] = c.getNom();
-            data[i][1] = c.getPrenom();
-            data[i][2] = ((Client) c).getMail();
-            data[i][3] = false;
+        for (Video v : Main.videos) {
+            data[i] = new Object[6];
+            data[i][0] = v.getReference();
+            data[i][1] = v.getDesignation();
+            data[i][2] = v.getPrix();
+            data[i][3] = v.getDuree();
+            data[i][4] = false;
             i++;
         }
     }
@@ -31,12 +33,12 @@ public class ClientTableModel extends AbstractTableModel {
 
     @Override
     public boolean isCellEditable(int row, int col) {
-        return col == 3;
+        return col == 4;
     }
 
     @Override
     public Class<?> getColumnClass(int column) {
-        if (column == 3) {
+        if (column == 4) {
             return Boolean.class;
         } else {
             return String.class;
@@ -45,7 +47,7 @@ public class ClientTableModel extends AbstractTableModel {
 
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-        if (columnIndex == 3) {
+        if (columnIndex == 4) {
             if (aValue instanceof Boolean) {
                 data[rowIndex][columnIndex] = aValue;
                 fireTableCellUpdated(rowIndex, columnIndex);

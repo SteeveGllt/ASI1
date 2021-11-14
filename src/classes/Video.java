@@ -8,6 +8,11 @@ public class Video extends Article {
 		super(uneRef, uneDesi, unPrix);
 		this.duree = uneDuree;
 	}
+	public Video(String uneRef, String uneDesi, Double unPrix, int uneDuree, Realisateur unRealisateur) {
+		super(uneRef, uneDesi, unPrix);
+		this.duree = uneDuree;
+		this.realisateur = unRealisateur;
+	}
 
 	public int getDuree() {
 		return duree;
@@ -27,7 +32,7 @@ public class Video extends Article {
 
 	@Override
 	public String toString() {
-		return super.toString() + "Durée : " + this.duree;
+		return super.toString() + "Durï¿½e : " + this.duree;
 	}
 
 }

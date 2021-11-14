@@ -14,10 +14,21 @@ public class Main {
 
 		public static ArrayList<Client> clients;
 		public static ArrayList<Personne> autReals;
+		public static ArrayList<Article> articles;
+		public static ArrayList<Livre> livres;
+		public static ArrayList<Video> videos;
+
+	public static ArrayList<Auteur> auteurs;
+	public static ArrayList<Realisateur> realisateurs;
 
 	public static void main(String[] args) {
 		clients = new ArrayList<Client>();
 		autReals = new ArrayList<Personne>();
+		livres = new ArrayList<Livre>();
+		videos = new ArrayList<Video>();
+		articles = new ArrayList<Article>();
+		auteurs = new ArrayList<Auteur>();
+		realisateurs = new ArrayList<Realisateur>();
 		Client c = new Client("courbez", "julian", "julian.courbez@gmail.com",
 				utils.PasswordGenerator.generateStrongPassword());
 		clients.add(c);
@@ -27,8 +38,28 @@ public class Main {
 		clients.add(c);
 		c = new Client("c", "likyhftgftg", "c.likyhftgftg@gmail.com", utils.PasswordGenerator.generateStrongPassword());
 		clients.add(c);
-		Auteur aa = new Auteur("nom","prenom");
-		autReals.add(aa);
+
+		/** Auteurs **/
+		Auteur a1 = new Auteur("Auteur 1","Auteur 1");
+		auteurs.add(a1);
+		Auteur a2 = new Auteur("Auteur 2","Auteur 2");
+		auteurs.add(a2);
+		Auteur a3 = new Auteur("Auteur 3","Auteur 3");
+		auteurs.add(a3);
+		Auteur a4 = new Auteur("Auteur 4","Auteur 4");
+		auteurs.add(a4);
+
+		/** Réalisateurs **/
+		Realisateur r1 = new Realisateur("Réalisaeteur 1","Réalisateur 1");
+		realisateurs.add(r1);
+		Realisateur r2 = new Realisateur("Réalisaeteur 2","Réalisaeteur 2");
+		realisateurs.add(r2);
+		Realisateur r3 = new Realisateur("Réalisaeteur 3","Réalisaeteur 3");
+		realisateurs.add(r3);
+		Realisateur r4 = new Realisateur("Réalisaeteur 4","Réalisaeteur 4");
+		realisateurs.add(r4);
+
+
 		Accueil a = new Accueil();
 	}
 

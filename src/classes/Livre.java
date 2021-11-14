@@ -11,6 +11,12 @@ public class Livre extends Article {
 		this.isbn = unIsbn;
 		this.nbPages = unNbPages;
 	}
+	public Livre(String uneRef, String uneDesi, Double unPrix, String unIsbn, int unNbPages, Auteur unAuteur) {
+		super(uneRef, uneDesi, unPrix);
+		this.isbn = unIsbn;
+		this.nbPages = unNbPages;
+		this.auteur = unAuteur;
+	}
 
 	public Auteur getAuteur() {
 		return auteur;

@@ -11,7 +11,7 @@ import javax.swing.JMenuItem;
 
 public class Menu extends JMenuBar implements ActionListener {
 	JMenu menu1, menu2;
-	JMenuItem client, auteur, realisateur, livre, video;
+	JMenuItem client, auteur, realisateur, livre, video, livreVideo;
 	JFrame fenetre;
 
 	public Menu(JFrame mafenetre) {
@@ -25,18 +25,21 @@ public class Menu extends JMenuBar implements ActionListener {
 		realisateur = new JMenuItem("Réalisateur");
 		livre = new JMenuItem("Livre");
 		video = new JMenuItem("Vidéo");
+		livreVideo = new JMenuItem("Livre/Video");
 
 		client.addActionListener(this);
 		auteur.addActionListener(this);
 		realisateur.addActionListener(this);
 		livre.addActionListener(this);
 		video.addActionListener(this);
+		livreVideo.addActionListener(this);
 
 		menu1.add(client);
 		menu1.add(auteur);
 		menu1.add(realisateur);
 		menu2.add(livre);
 		menu2.add(video);
+		menu2.add(livreVideo);
 
 		this.add(menu1);
 		this.add(menu2);
@@ -61,10 +64,22 @@ public class Menu extends JMenuBar implements ActionListener {
 
 		}
 		if (e.getSource() == livre) {
-
+			fenetre.getContentPane().removeAll();
+			fenetre.getContentPane().add(new LivrePanel(fenetre), BorderLayout.CENTER);
+			fenetre.revalidate();
+			fenetre.repaint();
 		}
 		if (e.getSource() == video) {
-
+			fenetre.getContentPane().removeAll();
+			fenetre.getContentPane().add(new VideoPanel(fenetre), BorderLayout.CENTER);
+			fenetre.revalidate();
+			fenetre.repaint();
+		}
+		if (e.getSource() == livreVideo ) {
+			fenetre.getContentPane().removeAll();
+			fenetre.getContentPane().add(new LivreVideoPanel(fenetre), BorderLayout.CENTER);
+			fenetre.revalidate();
+			fenetre.repaint();
 		}
 
 	}
