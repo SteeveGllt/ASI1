@@ -18,6 +18,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+import bases.AdoPersonne;
 import classes.Client;
 import main.Main;
 import models.ClientTableModel;
@@ -136,6 +137,7 @@ public class ClientPanel extends JPanel implements ActionListener, MouseListener
 				Client c = new Client(nomT.getText(), prenomT.getText(), mailT.getText(),
 						PasswordGenerator.generateStrongPassword());
 				Main.clients.add(c);
+				AdoPersonne.save(c);
 			} else {
 				update.setNom(nomT.getText());
 				update.setPrenom(prenomT.getText());

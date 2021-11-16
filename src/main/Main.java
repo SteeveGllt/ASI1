@@ -1,11 +1,14 @@
 package main;
 
+import java.sql.Connection;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+import bases.Ado;
+import bases.AdoPersonne;
 import classes.*;
 import utils.AddressGenerator;
 import vues.Accueil;
@@ -61,6 +64,8 @@ public class Main {
 
 
 		Accueil a = new Accueil();
+
+
 	}
 
 	public static void ExoObjet() {
